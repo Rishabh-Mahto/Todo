@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
-mongoose.connect(
-  "mongodb+srv://Rishabh:<password>@cluster0.49rl9vy.mongodb.net/?retryWrites=true&w=majority"
-);
+const uri = process.env.MONGODBURI;
+
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 const todoSchema = mongoose.Schema({
   title: String,
   description: String,
